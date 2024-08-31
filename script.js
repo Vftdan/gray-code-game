@@ -1,7 +1,7 @@
 grayCodeGame = (function(grayCodeGame) {
 	addEventListener('load', function() {
 		grayCodeGame.startGame();
-	})
+	});
 	return Object.assign(grayCodeGame, {
 		checkboxArea: null,
 		checkboxes: null,
@@ -60,7 +60,7 @@ grayCodeGame = (function(grayCodeGame) {
 			if (maskDiff != playedMask) {
 				this.lose();
 				var expectedIndex = Math.log2(maskDiff);
-				this.setStatusMessage('You lost!\nBit #' + index + ' was inverted instead of #' + expectedIndex);
+				this.setStatusMessage('You lost!\nBit #' + index + ' was inverted instead of #' + expectedIndex + '\nScore: ' + prevIteration);
 			}
 		},
 		lose: function() {
