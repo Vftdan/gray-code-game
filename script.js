@@ -28,17 +28,20 @@ grayCodeGame = (function(grayCodeGame) {
 			this.lost = false;
 		},
 		appendCheckbox: function() {
-			var elem = document.createElement('input');
-			elem.type = 'checkbox';
-			elem.className = 'bit-checkbox';
-			var index = this.checkboxes.push(elem) - 1;
-			elem.title = '#' + index;
+			var checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			var container = document.createElement('label');
+			container.className = 'bit-checkbox';
+			var index = this.checkboxes.push(checkbox) - 1;
+			checkbox.title = '#' + index;
+			container.innerText = index + '';
+			container.appendChild(checkbox);
 			var grayCodeGame = this;
-			elem.addEventListener('change', function(ev) {
+			checkbox.addEventListener('change', function(ev) {
 				void(ev);
-				grayCodeGame.updateBit(index, elem.checked);
+				grayCodeGame.updateBit(index, checkbox.checked);
 			});
-			this.checkboxArea.appendChild(elem);
+			this.checkboxArea.appendChild(container);
 		},
 		updateBit: function(index, value) {
 			this.setStatusMessage((value ? 'Set' : 'Reset') + ' bit #' + index);

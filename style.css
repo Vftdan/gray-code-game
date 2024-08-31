@@ -4,4 +4,15 @@
 
 #checkbox-area .bit-checkbox {
 	display: inline-block;
+	text-align: center;
+	padding: 2pt;
+}
+
+#checkbox-area .bit-checkbox:not(:first-child) {
+	border-left: 1px solid black;
+}
+
+#checkbox-area .bit-checkbox input {
+	display: block;
+	margin: 3px;
 }
